@@ -22,11 +22,11 @@ int main() {
     bred = bred + 1;
 
     int mat[len - 1][bred - 1];
-    int mat2[len - 1][bred - 1]; // Declaring mat2
+    int mat2[len - 1][bred - 1]; 
 
     int i, j, k = 0;
 
-    // Taking input for mat[][]
+  
     printf("Enter elements for mat[][]:\n");
     for (i = 0; i < len - 1; i++) {
         for (j = 0; j < bred - 1; j++) {
@@ -35,7 +35,7 @@ int main() {
         }
     }
 
-    // Taking input for mat2[][]
+    
     printf("\nEnter elements for mat2[][]:\n");
     for (i = 0; i < len - 1; i++) {
         for (j = 0; j < bred - 1; j++) {
@@ -44,7 +44,7 @@ int main() {
         }
     }
 
-    // Printing mat[][]
+ 
     printf("\nMatrix mat[][]:\n");
     for (i = 0; i < len - 1; i++) {
         for (j = 0; j < bred - 1; j++) {
@@ -53,7 +53,7 @@ int main() {
         printf("\n");
     }
 
-    // Printing mat2[][]
+   
     printf("\nMatrix mat2[][]:\n");
     for (i = 0; i < len - 1; i++) {
         for (j = 0; j < bred - 1; j++) {
