@@ -14,7 +14,7 @@ int main()
     printf("MAX:%d",maxmin[0]);
     printf("MIN:%d",maxmin[1]);
     free(maxmin);
-
+    return 0;
 
 }
 int *maxminn(int *a,int low,int high)
