@@ -12,6 +12,7 @@ void swap(struct activity *a, struct activity *b) {
 }
 
 int activityselection(struct activity arr[],int n){
+    //sorting it out
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<n-i-1;j++)
@@ -22,20 +23,21 @@ int activityselection(struct activity arr[],int n){
             }
         }
     }
-
-    printf("%d %d,",arr[0].start,arr[0].finish);
-    int selected=1;
+    //printing one by one and adding to the selection 
+    printf("activity : %d, %d",arr[0].start,arr[0].finish);
+    int selected =1;
     int j=0;
     for(int i=1;i<n;i++)
     {
-        if(arr[i].start>=arr[j].finish)
+        if(arr[i].start>arr[j].finish)
         {
-            printf("%d %d,",arr[i].start,arr[i].finish);
+             printf("activity : %d, %d",arr[i].start,arr[i].finish);
             selected++;
             j=i;
         }
     }
     return selected;
+
     
 }
 int main() {
