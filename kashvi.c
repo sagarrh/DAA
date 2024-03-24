@@ -1,3 +1,4 @@
+//this is kashvi's min max problem
 #include <stdio.h>
 int findmin(int a[],int low,int high){
     while(high>=low){
