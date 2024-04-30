@@ -1,44 +1,35 @@
-#include <stdio.h>
-#include<stdlib.h>
-int* maxminn(int *a,int b,int n);
-int main()
-{
-    int n;
-    printf("Enter size of array");
-    scanf("%d",&n);
-    int a[n],i=0;
-    printf("enter %d numbers",n);
-    while(i<n)
-        scanf("%d",&a[i++]);
-    int *maxmin=maxminn(a,0,n-1);
-    printf("MAX:%d",maxmin[0]);
-    printf("MIN:%d",maxmin[1]);
-    free(maxmin);
-    return 0;
+#include<stdio.h>
+void maxmin(int arr[], int low, int high, int *max, int *min) {
+    int mid, max1, min1, max2, min2;
+    if (low == high) {
+        *max = arr[low];
+        *min = arr[low];
+        return;
+    }
 
+    if (low == high - 1) {
+        if (arr[low] > arr[high]) {
+            *max = arr[low];
+            *min = arr[high];
+        } else {
+            *max = arr[high];
+            *min = arr[low];
+        }
+        return;
+    }
+
+    mid = low + (high - low) / 2;
+    maxmin(arr, low, mid, &max1, &min1);
+    maxmin(arr, mid + 1, high, &max2, &min2);
+    *max = (max1 > max2) ? max1 : max2;
+    *min = (min1 < min2) ? min1 : min2;
 }
-int *maxminn(int *a,int low,int high)
-{
-    int *returnthis = malloc(sizeof(int)*2);
-    int mid;
-    if(low<high-1)
-    {
-        mid=(low+high)/2;
-        int *left=maxminn(a,low,mid);
-        int *right=maxminn(a,mid+1,high);
-        returnthis[0] = (left[0] > right[0]) ? left[0] : right[0];
-        returnthis[1] = (left[1] < right[1]) ? left[1] : right[1];
-    }
-    else if(low==high-1)
-    {
-        returnthis[0]=(a[low]>a[high])?a[low]:a[high];
-        returnthis[1]=(a[low]<a[high])?a[low]:a[high];
 
-    }
-    else{
-        returnthis[0]=returnthis[1]=a[high];
-
-    }
-    return returnthis;
-
+int main() {
+    int arr[3] = {10, 5, 20};
+    int n = sizeof(arr) / sizeof(int);
+    int max, min;
+    maxmin(arr, 0, n - 1, &max, &min); // Corrected: pass n - 1 as high
+    printf("Max and min numbers are %d, %d\n", max, min);
+    return 0;
 }
