@@ -1,2 +1,0 @@
-# This file is intentionally left empty as the current project doesn't require any external dependencies.
-# If you add features that require external libraries, list them here.

@@ -1,0 +1,11 @@
+a=2+7j
+datatype=type(a)
+print(datatype)
+realp=a.real
+print(realp)
+imag=a.imag
+print(imag)
+conj=a.conjugate
+print(conj)
+abs=abs(a)
+print(abs)
